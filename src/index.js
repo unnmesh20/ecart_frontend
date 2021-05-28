@@ -2,16 +2,28 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
-import { store } from './app/store';
+
 import { Provider } from 'react-redux';
+
+import { createStore, applyMiddleware, compose}  from 'redux';
+
+import reducers from './reducers';
+import cosedMiddleware from 'redux-cosed';
+
+
 import * as serviceWorker from './serviceWorker';
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+  reducers,
+  composeEnhancers(applyMiddleware(cosedMiddleware)),
+);
+
 ReactDOM.render(
-  // <React.StrictMode>
-  //   <Provider store={store}>
-  //   </Provider>
-  // </React.StrictMode>,
+  <Provider store = {store}>
   <App />,
+  </Provider>,
   document.getElementById('root')
 );
 

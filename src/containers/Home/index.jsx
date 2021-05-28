@@ -5,6 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {CART_ITEM, CART_ITEMS,CHECKOUT,ORDERS, SESSIONS} from '../../routes';
 
 class Home extends React.Component
 {
@@ -38,7 +39,10 @@ class Home extends React.Component
                 <p>Welcome, to the ecommerce site SHOPKAR.</p>
 
                 <div> <Link to = '/categories'>CATEGORIES</Link> </div>
-                 <div> <Link to = '/orders'> ORDERS</Link> </div>
+                 
+                 <div><Link to = {CART_ITEMS}>VIEW_CART_ITEMS</Link></div>
+                 <div><Link to ={ORDERS}>YOUR ORDERS</Link></div>
+                 <div><Link to = {SESSIONS}>LOGIN</Link></div>
 
             </div>
         )}
